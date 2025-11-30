@@ -1,0 +1,7 @@
+h1 {
+    font-family: var(--font-geist-sans);
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-text);
+}

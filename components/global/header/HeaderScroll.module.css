@@ -1,0 +1,125 @@
+.container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--card);
+    padding: 0.5rem 0;
+    z-index: 1;
+}
+
+.scrollWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.scrollContent {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding-right: 2rem; /* Add padding to create space between repeats */
+}
+
+.clone {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding-right: 2rem;
+}
+
+.item {
+  color: var(--muted-foreground);
+  font-weight: 400;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.item:hover {
+  color: #0b368b;
+}
+
+.separator {
+  color: #0b368b;
+  font-size: 0.75rem;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .item {
+    font-size: 1rem;
+  }
+}
+
+/* Dark/elegant theme */
+.container.dark {
+  background: #000000;
+  border-top: 1px solid #1f2937;
+  border-bottom: 1px solid #1f2937;
+}
+
+.container.dark .item {
+  color: #e5e7eb;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.container.dark .separator {
+  color: #6b7280;
+}
+
+/* Neon theme */
+.container.neon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.container.neon .item {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.container.neon .separator {
+  color: #fde68a;
+  text-shadow: 0 0 10px rgba(253, 230, 138, 0.8);
+}
+
+/* News ticker theme */
+.container.news {
+  background: #1a1a1a;
+  border-top: 2px solid #ef4444;
+  border-bottom: 2px solid #ef4444;
+  position: relative;
+}
+
+.container.news::before {
+  content: "BREAKING";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #ef4444;
+  color: white;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  z-index: 10;
+}
+
+.container.news .scrollWrapper {
+  padding-left: 6rem; /* Space for BREAKING label */
+}
+
+.container.news .item {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.container.news .separator {
+  color: #ef4444;
+}

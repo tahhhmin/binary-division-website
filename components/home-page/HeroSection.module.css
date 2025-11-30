@@ -1,0 +1,42 @@
+.heroSectionContainer {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Video */
+.videoBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Black overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* adjust opacity here */
+    z-index: -1;
+}
+
+/* Text */
+.content {
+    z-index: 2;
+}
+
+.title {
+    color: white;
+}

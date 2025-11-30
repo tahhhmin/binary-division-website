@@ -1,4 +1,4 @@
 .main {
     display: flex;
-    background-color: aquamarine;
+    flex-direction: column;
 }

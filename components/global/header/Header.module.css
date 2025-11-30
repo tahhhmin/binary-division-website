@@ -1,0 +1,32 @@
+.header {
+    background-color: var(--card);
+
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 100%;
+    z-index: 1000; 
+}
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+.logo {
+    width: 6rem;
+    height: auto;
+}
+.buttons, .navigation {
+    margin: auto 0;
+    z-index: 999;
+}
+@media only screen and (max-width: 1440px) {
+    .header {
+        width: 100%;
+    }
+}
+
