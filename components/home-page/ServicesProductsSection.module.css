@@ -1,7 +1,173 @@
 .section {
-    height: calc(100vh - 110px);
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     padding: 2rem;
+    min-height: calc(100vh - 110px); /* Set a minimum height */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 700px; /* Set explicit height */
+}
+
+.services {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 50%;
+    height: 100%;
+}
+
+.printing {
+    background-color: var(--card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid;
+    border-color: var(--border);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+
+
+.cardContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.features li {
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.features li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.otherServices {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+}
+
+.engine {
+    background-color: var(--card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid;
+    border-color: var(--border);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.products {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+    height: 100%;
+}
+
+.productContainer {
+    background-color: var(--card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid;
+    border-color: var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.productContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+
+
+.productContainer h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.productContainer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .services,
+    .products {
+        width: 100%;
+    }
+    
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 640px) {
+    .services {
+        flex-direction: column;
+    }
+    
+    .printing,
+    .otherServices {
+        width: 100%;
+    }
+    
+    .products {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
 }

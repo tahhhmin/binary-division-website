@@ -26,7 +26,12 @@ const loraSerif = Lora({
 
 export const metadata: Metadata = {
     title: "Binary Division",
-    description: "",
+    description: "desc",
+    icons: {
+        icon: "/bd-icon-logo-b2.svg",
+        shortcut: "/bd-icon-logo-b2.svg",
+        apple: "/bd-icon-logo-b2.svg",
+    },
 };
 
 export default function RootLayout({

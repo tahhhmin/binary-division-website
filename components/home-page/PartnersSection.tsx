@@ -8,6 +8,10 @@ export default function PartnersSection() {
             <div className={styles.container}>
                 <h2 className={styles.title}>Partners Section</h2>
             </div>
+
+            <div className={styles.container}>
+
+            </div>
         </section>
     </section>
   )

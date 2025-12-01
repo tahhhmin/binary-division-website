@@ -4,7 +4,7 @@ import styles from './CareerSection.module.css'
 export default function CareerSection() {
     return (
         <section className={styles.section}>
-            <h2>Career Section</h2>
+            <h2>Career</h2>
         </section>
     )
 }
