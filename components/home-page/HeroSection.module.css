@@ -1,13 +1,14 @@
 .heroSectionContainer {
     position: relative;
-    height: 100vh;
+    height: 70vh;
     width: 100%;
     overflow: hidden;
-
+    padding-top: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: var(--brand-blue);
 }
 
 /* Video */

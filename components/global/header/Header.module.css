@@ -20,13 +20,23 @@
     width: 6rem;
     height: auto;
 }
-.buttons, .navigation {
+.navigation {
+    z-index: 10;
     margin: auto 0;
-    z-index: 999;
+}
+.buttons {
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+    margin: auto 0;
+}
+.headerScroll {
+    z-index: 1;
 }
 @media only screen and (max-width: 1440px) {
     .header {
         width: 100%;
     }
 }
+
 

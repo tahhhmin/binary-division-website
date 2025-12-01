@@ -1,7 +1,58 @@
 h1 {
     font-family: var(--font-geist-sans);
-    font-size: 4.5rem;
-    font-weight: 600;
-    line-height: 1.2;
     color: var(--color-text);
+
+    scroll-margin: 20px;       /* scroll-m-20 */
+    text-align: center;        /* text-center */
+    font-size: 2.25rem;        /* text-4xl (36px) */
+    line-height: 2.5rem;       /* default Tailwind line-height for text-4xl */
+    font-weight: 800;          /* font-extrabold */
+    letter-spacing: -0.025em;  /* tracking-tight */
+    text-wrap: balance;        /* text-balance (modern browsers) */
+}
+
+
+
+h2 {
+    font-family: var(--font-geist-sans);
+    color: var(--color-text);
+
+    scroll-margin: 20px;          /* scroll-m-20 */
+    padding-bottom: 0.5rem;       /* pb-2 */
+    font-size: 1.875rem;          /* text-3xl (30px) */
+    line-height: 2.25rem;         /* default Tailwind line-height for text-3xl */
+    font-weight: 600;             /* font-semibold */
+    letter-spacing: -0.025em;     /* tracking-tight */
+}
+
+
+h3 {
+    font-family: var(--font-geist-sans);
+    color: var(--color-text);
+
+    scroll-margin: 20px;          /* scroll-m-20 */
+    font-size: 1.5rem;            /* text-2xl (24px) */
+    line-height: 2rem;            /* default Tailwind line-height for text-2xl */
+    font-weight: 600;             /* font-semibold */
+    letter-spacing: -0.025em;     /* tracking-tight */
+}
+
+
+h4 {
+    font-family: var(--font-geist-sans);
+    color: var(--color-text);
+
+    scroll-margin: 20px;        /* scroll-m-20 */
+    font-size: 1.25rem;         /* text-xl (20px) */
+    line-height: 1.75rem;       /* default Tailwind line-height for text-xl */
+    font-weight: 600;           /* font-semibold */
+    letter-spacing: -0.025em;   /* tracking-tight */
+}
+
+
+p {
+    font-family: var(--font-geist-sans);
+    color: var(--color-text);
+
+    line-height: 1.75rem; /* leading-7 */
 }
