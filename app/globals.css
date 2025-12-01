@@ -6,8 +6,6 @@
 @theme inline {
     --color-brand-blue: var(--brand-blue);
 
-
-
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --font-sans: var(--font-geist-sans);
@@ -51,8 +49,6 @@
 
     --brand-blue: #0b368b;
 
-
-
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -90,7 +86,6 @@
 .dark {
 
     --brand-blue: #1958bc;
-
 
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);

@@ -3,7 +3,7 @@ import { ThemeProvider } from "@/app/providers/theme-provider"
 
 
 import { Geist, Geist_Mono, Lora } from "next/font/google";
-import "./styles/globals.css";
+import "./globals.css";
 import "./styles/typography.css"
 
 import HeaderLayout from "@/components/global/header/HeaderLayout";
