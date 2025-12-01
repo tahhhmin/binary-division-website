@@ -93,13 +93,11 @@ export default function HeaderScroll({
   }, [speed, pauseOnHover])
 
   const items = [
-    "Pioneering Engineering",
-    "Innovative Solutions",
-    "Digital Excellence",
-    "Future Forward",
-    "Technology Leaders",
-    "World-Class Development",
-    "Cutting-Edge Design"
+    "Machines with Purpose",
+    "Designed for the Demands of Tomorrow",
+    "Precision Built Into Every Motion",
+    "Machines for the Edges of the Earth",
+    "3D Printed to Perfection"
   ]
 
   return (

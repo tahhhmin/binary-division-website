@@ -64,8 +64,8 @@ export default function HeroSection() {
 
             <div className={styles.content}>
                 <h1 ref={titleRef1} className={styles.title}>AI/ML & Robotics</h1>
-                <h1 ref={titleRef2} className={styles.title}>for the Built World</h1>
-                <p ref={subtitleRef}>3D Printed to perfection</p>
+                <h1 ref={titleRef2} className={styles.title}>for Tomorrow’s Humanity.</h1>
+                <p ref={subtitleRef} className={styles.subtitle}>Precision. Autonomy. Impact.</p>
             </div>
         </section>
     )

@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/app/providers/theme-provider"
 
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Lora } from "next/font/google";
 import "./styles/globals.css";
 import "./styles/typography.css"
 
 import HeaderLayout from "@/components/global/header/HeaderLayout";
+import FooterLayout from "@/components/global/footer/FooterLayout";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -15,6 +16,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
+    subsets: ["latin"],
+});
+
+const loraSerif = Lora({
+    variable: "--font-lora_serif",
     subsets: ["latin"],
 });
 
@@ -30,7 +36,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <body className={`${geistSans.variable} ${geistMono.variable} ${loraSerif.variable} antialiased`}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
@@ -39,6 +45,7 @@ export default function RootLayout({
                 >
                 <HeaderLayout />
                 {children}
+                <FooterLayout />
                 </ThemeProvider>
             </body>
         </html>
