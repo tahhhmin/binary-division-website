@@ -69,7 +69,7 @@ export default function ProjectSection({ itemsPerPage = 3 }: ProjectSectionProps
     <section className={styles.section} id="projects-section">
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle}>Projects</h2>
-        <p className={styles.sectionSubtitle}>Frontier smth smth</p>
+        <p className={styles.sectionSubtitle}>Exploring the Edge of Advanced Technology</p>
       </div>
 
       <div className={styles.grid}>

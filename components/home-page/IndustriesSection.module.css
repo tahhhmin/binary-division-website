@@ -5,7 +5,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   min-height: calc(100vh - 110px);
 }
 

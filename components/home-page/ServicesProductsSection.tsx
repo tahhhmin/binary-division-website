@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './ServicesProductsSection.module.css'
+import Link from 'next/link'
 
 export default function ServicesProductsSection() {
     return (
@@ -9,7 +10,7 @@ export default function ServicesProductsSection() {
             <div className={styles.container}>
                 <div className={styles.services}>
                     <div className={styles.printing}>
-                        <div className={styles.cardContent}>
+                        <Link href='/services/3d-printing' className={styles.cardContent}>
                             <h3>3D Printing</h3>
                             <p>Custom additive manufacturing solutions for rapid prototyping and production-ready parts</p>
                             <ul className={styles.features}>
@@ -18,18 +19,18 @@ export default function ServicesProductsSection() {
                                 <li>0.1mm layer resolution</li>
                                 <li>24-hour turnaround available</li>
                             </ul>
-                        </div>
+                        </Link>
                     </div>
                     <div className={styles.otherServices}>
-                        <div className={styles.engine}>
+                        <Link href='/' className={styles.engine}>
                             <h3>Fusion Engine</h3>
                             <p>Advanced propulsion system for autonomous vehicles</p>
-                        </div>
+                        </Link>
 
-                        <div className={styles.engine}>
+                        <Link href='/' className={styles.engine}>
                             <h3>Omicron Engine</h3>
                             <p>High-efficiency power generation for remote operations</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 

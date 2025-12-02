@@ -39,7 +39,26 @@
     perspective: 1000px;
 }
 
+.printing::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
 
+.printing:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px var(--brand-blue);
+    border-color: var(--brand-blue);
+}
+
+.printing:hover::before {
+    transform: translateX(0);
+}
 
 .cardContent {
     flex: 1;
@@ -90,6 +109,41 @@
 
 
 
+/* Top gradient bar animation */
+.engine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.engine:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px var(--brand-blue);
+    border-color: var(--brand-blue);
+}
+
+.engine:hover::before {
+    transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .products {
     width: 50%;
     display: grid;
@@ -99,20 +153,30 @@
     height: 100%;
 }
 
+
+
+
+
+
+
+
+
+
+
 .productContainer {
     background-color: var(--card);
     padding: 1.5rem;
     border-radius: var(--radius);
-    border: 1px solid;
-    border-color: var(--border);
+    border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
+/* Top gradient bar animation */
 .productContainer::before {
     content: "";
     position: absolute;
@@ -120,10 +184,30 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 }
+
+.productContainer:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px var(--brand-blue);
+    border-color: var(--brand-blue);
+}
+
+.productContainer:hover::before {
+    transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

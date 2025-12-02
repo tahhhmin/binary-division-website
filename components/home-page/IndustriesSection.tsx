@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
+import Image, { StaticImageData } from 'next/image'
 import styles from './IndustriesSection.module.css'
 import {
   Pagination,
@@ -12,10 +13,12 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination"
 
+import CMD from '@/public/industries/drone.jpg'
+
 interface IndustryItem {
   id: string
   title: string
-  thumbnail: string
+  thumbnail: string | StaticImageData | null
 }
 
 interface IndustriesSectionProps {
@@ -24,19 +27,20 @@ interface IndustriesSectionProps {
 
 // Sample industries data
 const industriesData: IndustryItem[] = [
-    { id: '1', title: 'Finance', thumbnail: '#' },
-    { id: '2', title: 'Healthcare', thumbnail: '#' },
-    { id: '3', title: 'Technology', thumbnail: '#' },
-    { id: '4', title: 'Manufacturing', thumbnail: '#' },
-    { id: '5', title: 'Education', thumbnail: '#' },
-    { id: '6', title: 'Retail', thumbnail: '#' },
-    { id: '7', title: 'Energy', thumbnail: '#' },
-    { id: '8', title: 'Transportation', thumbnail: '#' },
+  { id: '1', title: 'Critical Medical Delivery', thumbnail: CMD },
+  { id: '2', title: 'Automated Delivery', thumbnail: null },
+  { id: '3', title: 'Disaster Response & Assessment', thumbnail: null },
+  { id: '4', title: 'Hazardous Environment Exploration', thumbnail: null },
+  { id: '5', title: 'Security Surveillance', thumbnail: null },
+  { id: '6', title: 'Infrastructure Inspection', thumbnail: null },
+  { id: '7', title: 'Network Establishment', thumbnail: null },
+  { id: '8', title: 'Weather Monitoring', thumbnail: null },
+  { id: '9', title: 'Agriculture Automation', thumbnail: null },
+  { id: '10', title: 'Wildlife & Ecosystem Monitoring', thumbnail: null },
 ]
 
 export default function IndustriesSection({ itemsPerPage = 4 }: IndustriesSectionProps) {
   const [currentPage, setCurrentPage] = useState(1)
-
   const totalPages = Math.ceil(industriesData.length / itemsPerPage)
 
   const currentIndustries = useMemo(() => {
@@ -72,7 +76,17 @@ export default function IndustriesSection({ itemsPerPage = 4 }: IndustriesSectio
       <div className={styles.container}>
         {currentIndustries.map((item) => (
           <div key={item.id} className={styles.industryItem}>
-            <img src={item.thumbnail} alt={item.title} className={styles.thumbnail} />
+            {item.thumbnail ? (
+              <Image
+                src={item.thumbnail}
+                alt={item.title}
+                className={styles.thumbnail}
+                width={200}
+                height={200}
+              />
+            ) : (
+              <div className={styles.thumbnail}></div>
+            )}
             <h3 className={styles.title}>{item.title}</h3>
           </div>
         ))}

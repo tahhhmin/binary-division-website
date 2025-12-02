@@ -56,7 +56,7 @@ export default function HeroSection() {
                 muted
                 playsInline
             >
-                <source src="/" type="video/mp4" />
+                <source src="/hero-video.mp4" type="video/mp4" />
             </video>
 
             {/* overlay */}
