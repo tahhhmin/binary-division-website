@@ -47,3 +47,6 @@
     flex-direction: column;
     gap: 0.5rem;
 }
+.empty {
+    text-align: center;
+}

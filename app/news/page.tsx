@@ -137,7 +137,7 @@ export default function NewsPage() {
                 
                 {!loading && news.length === 0 && (
                     <div className={styles.empty}>
-                        <p>No news found.</p>
+                        <p className='muted-text'>No news found.</p>
                     </div>
                 )}
 
