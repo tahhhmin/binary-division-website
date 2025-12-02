@@ -43,3 +43,15 @@
 .subtitle {
     color: white;
 }
+
+
+@media (max-width: 1150px) {
+    .heroSectionContainer {
+        height: 50vh;
+    }
+}
+@media (max-width: 600px) {
+    .heroSectionContainer {
+        height: 30vh;
+    }
+}

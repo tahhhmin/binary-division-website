@@ -17,6 +17,27 @@ import { ThemeToggleButton } from "@/components/global/buttons/ThemeToggleButton
 import { NavigationMenuDemo } from '@/components/global/header/HeaderNavigation'
 import HeaderScroll from './HeaderScroll'
 
+
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Menu } from 'lucide-react';
+
+
+
+
 export default function Header() {
     const [mounted, setMounted] = useState(false)
     const { theme, resolvedTheme } = useTheme()
@@ -78,11 +99,71 @@ export default function Header() {
                     <NavigationMenuDemo />
                 </div>
 
-                <div className={styles.buttons}>
-                    <ButtonGroup className="hidden sm:flex">
+                <div className={styles.fullScreenButtons}>
+                    <ButtonGroup>
                         <Button variant="outline">Contact</Button>
                         <Button variant="outline">Log In</Button>
                         <ThemeToggleButton />
+                    </ButtonGroup>
+                </div>
+
+                <div className={styles.halfScreenButtons}>
+                    <ButtonGroup>
+                        <Button variant="outline">Contact</Button>
+                        <Button variant="outline">Log In</Button>
+                    </ButtonGroup>
+
+                    <ButtonGroup>
+                        <ThemeToggleButton />
+
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" size="icon">
+                                    <Menu />
+                                </Button>
+                            </DropdownMenuTrigger>
+
+                            <DropdownMenuContent align="end" sideOffset={5} className={styles.dropdownContent}>
+                                <DropdownMenuLabel>Navigation</DropdownMenuLabel>
+                                <DropdownMenuGroup>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/">Home</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/services">Services</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/products">Products</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/industries">Industries</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/news">News</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/career">Career</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/teams">Teams</Link>
+                                </DropdownMenuItem>
+                                </DropdownMenuGroup>
+
+                                <DropdownMenuSeparator />
+                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                <DropdownMenuGroup>
+                                    <DropdownMenuItem>
+                                        Profile
+                                        <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        Log out
+                                    <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                                </DropdownMenuItem>
+                                </DropdownMenuGroup> 
+
+                            </DropdownMenuContent>
+                        </DropdownMenu>         
                     </ButtonGroup>
                 </div>
             </div>

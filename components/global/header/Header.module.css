@@ -24,12 +24,24 @@
     z-index: 10;
     margin: auto 0;
 }
-.buttons {
+.fullScreenButtons {
     display: flex;
     gap: 1rem;
     z-index: 10;
     margin: auto 0;
 }
+.halfScreenButtons {
+    display: none;
+    gap: 1rem;
+    z-index: 10;
+    margin: auto 0;
+    z-index: 999;
+}
+.dropdownContent {
+    z-index: 1000; 
+    min-width: 200px; 
+}
+
 .headerScroll {
     z-index: 1;
 }
@@ -38,5 +50,13 @@
         width: 100%;
     }
 }
+@media only screen and (max-width: 1150px) {
+    .fullScreenButtons {
+        display: none;
+    }
+    .halfScreenButtons {
+            display: flex;
 
+    }
+}
 

@@ -1,18 +1,26 @@
-.section {
+.main {
+    margin: 0 auto;
+    margin-top: 110px;
     width: 100%;
     max-width: 1440px;
-    margin: 0 auto;
     padding: 2rem;
+    min-height: 100vh;
+    height: 100%;
+}
+.container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    min-height: calc(100vh - 110px);
 }
 .header {
+    display: flex;
+    flex-direction: column;
+}
+.headerTitle {
     display: flex;
     flex-direction: row;
     gap: 2rem;
 }
-.header p {
+.headerTitle p {
     margin: auto 0;
 }
