@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 export default function FooterLayout() {
     const pathname = usePathname();
-    const showFooter = pathname !== '/admin-panel' && pathname !== '/link';
+    const showFooter = pathname !== '/admin-panel' && pathname !== '/auth';
 
     return (
         <>

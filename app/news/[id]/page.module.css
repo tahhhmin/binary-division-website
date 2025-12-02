@@ -1,0 +1,50 @@
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.newsDetailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.newsTitle {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.newsDate {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.newsImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.newsDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.newsLinks ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.newsLinks a {
+  color: #1d4ed8;
+  text-decoration: underline;
+}

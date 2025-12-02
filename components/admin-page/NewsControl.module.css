@@ -1,0 +1,25 @@
+.pageWrapper {
+    text-align: left;
+    width: 100%;
+}
+
+.container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+
+.newsList {
+    width: 70%;
+}
+.form {
+    height: fit-content;
+    width: 30%;
+}

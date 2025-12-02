@@ -53,16 +53,16 @@ export default function Footer() {
                 </div>
                 <div className={styles.infoContainerBottom}>
                     <div>
-                        <p>info@binarydivision.com</p>
-                        <p>+880 13 1234 1234</p>
+                        <p className='muted-text'>info@binarydivision.com</p>
+                        <p className='muted-text'>+880 13 1234 1234</p>
                     </div>
                     <div>
-                        <p>Cookie Preferences</p>
+                        <p className='muted-text'>Cookie Preferences</p>
                     </div>
                     <div>
-                        <p>Copyright &copy; 2025</p>
-                        <p>Binary Divisio, Inc.</p>
-                        <p>All Rights Reserved.</p>
+                        <p className='muted-text'>Copyright &copy; 2025</p>
+                        <p className='muted-text'>Binary Divisio, Inc.</p>
+                        <p className='muted-text'>All Rights Reserved.</p>
                     </div>
                 </div>
             </div>

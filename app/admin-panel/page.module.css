@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+.content {
+    padding: 2rem;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-auto-rows: auto; /* automatically height adjusts */
+    gap: 2.5rem;
+}

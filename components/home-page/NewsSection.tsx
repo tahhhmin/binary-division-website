@@ -1,6 +1,7 @@
+// components/NewsSection.tsx - Updated image error handling
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './NewsSection.module.css'
 import {
   Pagination,
@@ -19,99 +20,63 @@ interface NewsItem {
   description: string
   thumbnail?: string
   link?: string
+  links?: string[]
 }
 
 interface NewsSectionProps {
   itemsPerPage?: number
 }
 
-const newsData: NewsItem[] = [
-  {
-    id: '1',
-    date: 'NOV 28, 2024',
-    title: 'Binary Division Launches Revolutionary AI Platform for Enterprise Automation',
-    description: 'Binary Division unveils its cutting-edge artificial intelligence platform designed to transform enterprise operations through intelligent automation and predictive analytics.',
-    thumbnail: '#'
-  },
-  {
-    id: '2',
-    date: 'NOV 25, 2024',
-    title: 'Strategic Partnership with Global Tech Leaders Announced',
-    description: 'Binary Division partners with leading technology companies to accelerate digital transformation initiatives across multiple industries.',
-    thumbnail: '#'
-  },
-  {
-    id: '3',
-    date: 'NOV 22, 2024',
-    title: 'Binary Division Wins Innovation Award for Robotics Excellence',
-    description: 'The company receives prestigious recognition for its groundbreaking work in robotics and autonomous systems development.',
-    thumbnail: '#'
-  },
-  {
-    id: '4',
-    date: 'NOV 18, 2024',
-    title: 'New Research Lab Opens to Drive Future Technologies',
-    description: 'Binary Division inaugurates state-of-the-art research facility dedicated to advancing AI, quantum computing, and sustainable tech solutions.',
-    thumbnail: '#'
-  },
-  {
-    id: '5',
-    date: 'NOV 15, 2024',
-    title: 'Expanding Operations: Binary Division Goes Global',
-    description: 'Company announces expansion into new international markets with offices opening in Europe, Asia, and South America.',
-    thumbnail: '#'
-  },
-  {
-    id: '6',
-    date: 'NOV 12, 2024',
-    title: 'Binary Division Hosts Annual Developer Conference',
-    description: 'Thousands of developers gather for Binary DevCon 2024, featuring keynotes on emerging technologies and hands-on workshops.',
-    thumbnail: '#'
-  },
-  {
-    id: '7',
-    date: 'NOV 8, 2024',
-    title: 'Breakthrough in Quantum Computing Applications',
-    description: 'Binary Division researchers achieve significant milestone in practical quantum computing applications for cryptography and optimization.',
-    thumbnail: '#'
-  },
-  {
-    id: '8',
-    date: 'NOV 5, 2024',
-    title: 'Sustainable Tech Initiative: Carbon Neutral by 2025',
-    description: 'Binary Division commits to achieving carbon neutrality across all operations by 2025 through innovative green technologies.',
-    thumbnail: '#'
-  },
-  {
-    id: '9',
-    date: 'NOV 2, 2024',
-    title: 'AI Ethics Framework Released for Public Review',
-    description: 'Company publishes comprehensive ethical guidelines for AI development and deployment, inviting community feedback.',
-    thumbnail: '#'
-  },
-  {
-    id: '10',
-    date: 'OCT 30, 2024',
-    title: 'Binary Division Academy: Training the Next Generation',
-    description: 'Launch of educational program aimed at upskilling professionals in AI, machine learning, and advanced robotics.',
-    thumbnail: '#'
-  }
-]
-
 export default function NewsSection({ itemsPerPage = 3 }: NewsSectionProps) {
   const [currentPage, setCurrentPage] = useState(1)
+  const [newsData, setNewsData] = useState<NewsItem[]>([])
+  const [totalPages, setTotalPages] = useState(0)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [brokenImages, setBrokenImages] = useState<Set<string>>(new Set())
 
-  const totalPages = Math.ceil(newsData.length / itemsPerPage)
-
-  const currentNews = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage
-    const end = start + itemsPerPage
-    return newsData.slice(start, end)
+  // Fetch news data
+  useEffect(() => {
+    fetchNews()
   }, [currentPage, itemsPerPage])
+
+  const fetchNews = async () => {
+    setLoading(true)
+    setError(null)
+    
+    try {
+      const response = await fetch(
+        `/api/news/get?page=${currentPage}&limit=${itemsPerPage}&sortBy=date&order=desc`
+      )
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch news')
+      }
+      
+      const result = await response.json()
+      
+      if (result.success) {
+        setNewsData(result.data)
+        setTotalPages(result.pagination.totalPages)
+      } else {
+        throw new Error(result.error || 'Failed to load news')
+      }
+    } catch (err) {
+      console.error('Error fetching news:', err)
+      setError(err instanceof Error ? err.message : 'Failed to load news')
+      // Set fallback empty data
+      setNewsData([])
+      setTotalPages(0)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return
     setCurrentPage(page)
+    // Scroll to top of news section
+    document.getElementById('news-section')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const getPageNumbers = () => {
@@ -126,6 +91,66 @@ export default function NewsSection({ itemsPerPage = 3 }: NewsSectionProps) {
     return pages
   }
 
+  const handleNewsClick = (item: NewsItem) => {
+    if (item.link) {
+      window.open(item.link, '_blank', 'noopener,noreferrer')
+    }
+  }
+
+  const handleImageError = (itemId: string) => {
+    setBrokenImages(prev => new Set(prev).add(itemId))
+  }
+
+  if (loading) {
+    return (
+      <section className={styles.section} id="news-section">
+        <div className={styles.titleSection}>
+          <h2 className={styles.sectionTitle}>News</h2>
+          <p className={styles.sectionSubtitle}>The Latest Updates</p>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.loadingMessage}>Loading news...</div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className={styles.section} id="news-section">
+        <div className={styles.titleSection}>
+          <h2 className={styles.sectionTitle}>News</h2>
+          <p className={styles.sectionSubtitle}>The Latest Updates</p>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.errorMessage}>
+            <p>Unable to load news at this time.</p>
+            <button onClick={fetchNews} className={styles.retryButton}>
+              Try Again
+            </button>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (newsData.length === 0) {
+    return (
+      <section className={styles.section} id="news-section">
+        <div className={styles.titleSection}>
+          <h2 className={styles.sectionTitle}>News</h2>
+          <p className={styles.sectionSubtitle}>The Latest Updates</p>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.emptyMessage}>
+            <p>No news articles available at the moment.</p>
+            <p>Check back later for updates!</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className={styles.section} id="news-section">
       <div className={styles.titleSection}>
@@ -134,24 +159,32 @@ export default function NewsSection({ itemsPerPage = 3 }: NewsSectionProps) {
       </div>
 
       <div className={styles.container}>
-        {currentNews.map((item) => (
-          <article key={item.id} className={styles.newsContainer}>
+        {newsData.map((item) => (
+          <article 
+            key={item.id} 
+            className={`${styles.newsContainer} ${item.link ? styles.clickable : ''}`}
+            onClick={() => handleNewsClick(item)}
+          >
             <div className={styles.thumbnailWrapper}>
-              {item.thumbnail ? (
+              {item.thumbnail && !brokenImages.has(item.id) ? (
                 <img
                   src={item.thumbnail}
                   alt={item.title}
                   className={styles.thumbnail}
                   loading="lazy"
+                  onError={() => handleImageError(item.id)}
                 />
               ) : (
-                <div className={styles.thumbnailPlaceholder} />
+                <div className={styles.thumbnailPlaceholder}>
+
+                </div>
               )}
             </div>
             <div className={styles.description}>
               <h4 className={styles.date}>{item.date}</h4>
               <h3 className={styles.title}>{item.title}</h3>
               <p className={styles.excerpt}>{item.description}</p>
+
             </div>
           </article>
         ))}
@@ -203,8 +236,6 @@ export default function NewsSection({ itemsPerPage = 3 }: NewsSectionProps) {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-
-
         </div>
       )}
     </section>

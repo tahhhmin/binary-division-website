@@ -1,0 +1,41 @@
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+.imageContainer {
+    width: 50%;
+    background-color: var(--card);
+    height: 100vh;
+    border-right: 1px solid var(--border);
+}
+.formContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.formContainerHeader {
+    text-align: left;
+    padding: 2rem;
+}
+
+
+.formWrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
