@@ -82,7 +82,9 @@ export function NavigationMenuDemo() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>
+                        <Link href='/products'>Products</Link> 
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                         {products.map((item) => (

@@ -2,7 +2,7 @@
     display: flex;
     gap: 1rem;
     width: 100%;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 300px);
 }
 .services {
     display: flex;
@@ -47,7 +47,7 @@
 .servicesCard:hover::before {
     transform: translateX(0);
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
     .container {
         flex-direction: column;
         height: fit-content;
@@ -63,4 +63,24 @@
         gap: 1rem;
         width: 100%;
     }
+}
+.features {
+    list-style: none;
+    padding: 0;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.features li {
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.features li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
 }
