@@ -28,3 +28,10 @@
     text-align: left;
     width: 50%;
 }
+.navigation {
+    display: flex;
+    gap: 1rem;
+}
+.breadcrumb {
+    margin: auto 0;
+}

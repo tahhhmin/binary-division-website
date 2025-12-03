@@ -1,0 +1,31 @@
+.main {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 110px;
+    padding: 2rem;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.titleContainer {
+    display: flex;
+    gap: 2rem;
+}
+.titleContainer p {
+    margin: auto 0;
+}
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

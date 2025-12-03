@@ -22,22 +22,6 @@ const services: { title: string; href: string; description: string }[] = [
         description:
         "A modal dialog that interrupts the user with important content and expects a response.",
     },
-    {
-        title: "Engines",
-        href: "/services/engines",
-        description: "For sighted users to preview content available behind a link.",
-    },
-    {
-        title: "CNC",
-        href: "/services/cnc",
-        description: "For sighted users to preview content available behind a link.",
-    },
-    {
-        title: "Inspection",
-        href: "/services/inspection",
-        description: "For sighted users to preview content available behind a link.",
-    },
-  // ... more service items
 ];
 
 const products: { title: string; href: string; description: string }[] = [
@@ -83,7 +67,9 @@ export function NavigationMenuDemo() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>
+                        <Link href='/services'>Services</Link> 
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                         {services.map((item) => (

@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import styles from './page.module.css';
 import NewsImage from './NewsImage';
 import { BackButton } from '@/components/global/buttons/BackButton';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 
 interface NewsItem {
     id: string;
@@ -102,6 +103,37 @@ export default async function NewsDetailPage({ params }: PageProps) {
                 <div className={styles.cardInfo}>
                     <nav className={styles.navigation}>
                         <BackButton />
+
+                        <Breadcrumb className={styles.breadcrumb}>
+                        <BreadcrumbList>
+                            <BreadcrumbItem>
+                                <BreadcrumbLink asChild>
+                                    <Link href="/">Home</Link>
+                                </BreadcrumbLink>
+                            </BreadcrumbItem>
+
+                            <BreadcrumbSeparator />
+
+                                                        <BreadcrumbItem>  
+                                <BreadcrumbLink asChild>
+                                    <Link href="/news">News</Link>
+                                </BreadcrumbLink>
+                            </BreadcrumbItem>
+
+                            <BreadcrumbSeparator />
+
+                            <BreadcrumbItem>
+                                <BreadcrumbLink asChild>
+                                    <Link href='/'>{news.title}</Link>
+                                </BreadcrumbLink>
+                            </BreadcrumbItem>
+
+
+                                                
+
+                            
+                        </BreadcrumbList>
+                    </Breadcrumb>
                     </nav>
 
                     <header className={styles.header}>

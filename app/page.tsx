@@ -71,19 +71,18 @@ export default function Page() {
 
             <IndustriesSection />
 
-            <NewsSection />
-
-            <PartnersSection />
-
-            <CareerSection />
-
             <QuoteSection
                 quote="Somewhere, something incredible is waiting to be known."
                 showAuthor={true}
                 author="Carl Sagan"
             />
 
-            <TeamsSection />
+            <NewsSection />
+
+            <PartnersSection />
+
+            <CareerSection />
+
         </main>
     );
 }
