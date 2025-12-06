@@ -1,4 +1,7 @@
-// app/api/news/get/route.ts
+// Force dynamic rendering to avoid static generation errors
+export const dynamic = "force-dynamic";
+export const revalidate = 60;
+
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/connectDB';
 import News from '@/models/news.model';
@@ -176,7 +179,6 @@ function formatDate(date: Date | string | undefined): string {
   try {
     const d = new Date(date);
     
-    // Check if date is valid
     if (isNaN(d.getTime())) {
       return formatCurrentDate();
     }
@@ -203,6 +205,3 @@ function formatCurrentDate(): string {
     year: 'numeric'
   }).toUpperCase();
 }
-
-// Optional: Add response headers for caching
-export const revalidate = 60; // Revalidate every 60 seconds
